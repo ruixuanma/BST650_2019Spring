@@ -1,0 +1,60 @@
+---
+title: "HW for slope"
+author: "Ruixuan Ma"
+date: "2/11/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+x <- seq(from = 0.001, to = 0.999, by = 0.001)
+
+# Take mean for n=11, head=7
+
+info1 <- function(x){
+  d <- D(expression(p^7 * (1-p)^4), "p")
+  p <- x
+  r <- eval(d)
+  mean(r^2)
+}
+
+info1(x)
+
+# Take mean for n=110, head=70
+
+info2 <- function(x){
+  d <- D(expression(p^70 * (1-p)^40), "p")
+  p <- x
+  r <- eval(d)
+  mean(r^2)
+}
+
+info2(x)
+
+
+# Take variance for n=11, head=7
+
+info3 <- function(x){
+  d <- D(expression(p^7 * (1-p)^4), "p")
+  p <- x
+  r <- eval(d)
+  var(r^2)
+}
+
+info3(x)
+
+# Take variance for n=110, head=70
+
+info4 <- function(x){
+  d <- D(expression(p^70 * (1-p)^40), "p")
+  p <- x
+  r <- eval(d)
+  var(r^2)
+}
+
+info4(x)
+
+```
