@@ -15,7 +15,7 @@ x <- seq(from = 0.001, to = 0.999, by = 0.001)
 # Take mean for n=11, head=7
 
 info1 <- function(x){
-  d <- D(expression(p^7 * (1-p)^4), "p")
+  d <- D(expression(330* p^7 * (1-p)^4), "p")
   p <- x
   r <- eval(d)
   mean(r^2)
@@ -26,7 +26,7 @@ info1(x)
 # Take mean for n=110, head=70
 
 info2 <- function(x){
-  d <- D(expression(p^70 * (1-p)^40), "p")
+  d <- D(expression((1.625053e+30) * p^70 * (1-p)^40), "p")
   p <- x
   r <- eval(d)
   mean(r^2)
@@ -35,26 +35,28 @@ info2 <- function(x){
 info2(x)
 
 
-# Take variance for n=11, head=7
+Lbin_11_7 <- function(p){p^7 * (1-p)^4}
+curve(expr = Lbin_11_7, from = 0, to = 1)
 
-info3 <- function(x){
-  d <- D(expression(p^7 * (1-p)^4), "p")
-  p <- x
-  r <- eval(d)
-  var(r^2)
-}
+lbin_110_70 <- function(p){p^70 * (1-p)^40}
+curve(expr = Lbin_110_7, from = 0, to = 1)
 
-info3(x)
 
-# Take variance for n=110, head=70
+# Revised code for this homework
 
-info4 <- function(x){
-  d <- D(expression(p^70 * (1-p)^40), "p")
-  p <- x
-  r <- eval(d)
-  var(r^2)
-}
+p <- seq(from = 0.001, to = 0.999, by = 0.001)
 
-info4(x)
+d1 <- D(expression(330 * p^7 * (1-p)^4), "p")
+d11 <- deriv(d1, "p")
+s1 <- eval(d11)
+mean(s1)
+
+d2 <- D(expression((1.625053e+30) * p^70 * (1-p)^40), "p")
+d22 <- deriv(d2, "p")
+s2 <- eval(d22)
+mean(s2)
+
+# We can know from the results that the mean for the n=110 head=70 is bigger than for the n=11 head= 70, which indicates that the more data we have, the more exact information we get. And from the curve of these two log-likelihood, we could see that near the maximum likelihood estimate, low Fisher information indicates that the maximum appears"blunt", that is , the maximum is shallow and there are many nearby values with a similar log-likelihood. Conversely, high Fisher information indicates that the maximum is sharp.
+
 
 ```
