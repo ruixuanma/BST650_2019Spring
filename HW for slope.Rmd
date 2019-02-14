@@ -56,7 +56,7 @@ d22 <- deriv(d2, "p")
 s2 <- eval(d22)
 mean(s2)
 
-# We can know from the results that the mean for the n=110 head=70 is bigger than for the n=11 head= 70, which indicates that the more data we have, the more exact information we get. And from the curve of these two log-likelihood, we could see that near the maximum likelihood estimate, low Fisher information indicates that the maximum appears"blunt", that is , the maximum is shallow and there are many nearby values with a similar log-likelihood. Conversely, high Fisher information indicates that the maximum is sharp.
+# We can know from the results that the mean for the n=110 head=70 is bigger than for the n=11 head= 70, which indicates that the more data we have, the more exact information we get. And from the curve of these two log-likelihood, we could see that near the maximum likelihood estimate, low Fisher information indicates that the maximum appears"blunt", that is , the maximum is shallow and there are many nearby values with a similar log-likelihood. Conversely, high Fisher information indicates that the maximum is more sharp.
 
 
 ```
