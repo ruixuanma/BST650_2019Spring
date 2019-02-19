@@ -1,0 +1,28 @@
+---
+title: "HW for Probability Calculation"
+author: "Ruixuan Ma"
+date: "2/19/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Negative Binomial Distribution
+There is a patient with less rare disease. The probability is P(disease) = 0.05. By given the 10000 patients we want to check the probability for 150 patients with negative binomial distribution.
+```{r}
+choose(10000+150-1, 10000)*(0.05^10000)*(0.95^150)
+```
+According to the result shown above, the result for choose function is infinity. Therefore we cannot get the exact probability for this problem in R.
+
+
+# Geometric Distribution
+In this problem, we want to know the probability of interviewing 20 records until the first patient with disease be found.
+
+```{r}
+(0.05)*(0.95)^20
+
+```
+According to result shown above, we can know that the probability for 
+interviewing 20 records and finding the first patient with disease is 0.018.
