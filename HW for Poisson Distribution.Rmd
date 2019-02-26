@@ -1,0 +1,49 @@
+---
+title: "HW for Poisson Distribution"
+author: "Ruixuan Ma"
+date: "2/26/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Possion Distribution PDF
+```{r}
+pois_fun <- function(x, rate){
+  ((rate) ^ x) * exp(-rate) / factorial(x)
+}
+
+pois_fun(200,150)
+
+```
+
+# Do poisson with sum(log(1:x))
+```{r}
+pois1_fun <- function(x, rate){
+  logFact <- sum(log(1:x))
+  exp(x * log(rate) - rate - logFact)
+}
+
+pois1_fun(200,150)
+```
+
+# Do possion with lgamma(x+1)
+```{r}
+pois2_fun <- function(x, rate){
+  exp(x * log(rate) - rate - lgamma(x+1))
+}
+
+pois2_fun(200,150)
+
+```
+
+# Do possion with function in R
+```{r}
+dpois(200,150)
+```
+
+We can get the same result 1.503803e-05 by use three different methods.
+
