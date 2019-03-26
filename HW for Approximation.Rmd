@@ -1,0 +1,38 @@
+---
+title: "HW for approximation"
+author: "Ruixuan Ma"
+date: "3/26/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+f1 <- function(n) {
+  sum(sapply(1:n, log))
+}
+
+f2 <- function(n) {
+  n*log(n) - n + 1
+}
+
+errF1 <- function(n) {
+  f1(n)/f2(n)
+}
+
+plot(seq(1:100), errF1(seq(1:100)))
+
+
+f3 <- function(n) {
+  n*log(n) - n + 1/2 * log(2*pi*n)
+}
+
+errF2 <- function(n){
+  f1(n)/f3(n)
+}
+
+plot(seq(1:100), errF2(seq(1:100)))
+```
+
