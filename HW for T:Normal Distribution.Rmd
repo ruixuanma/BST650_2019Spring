@@ -1,0 +1,49 @@
+---
+title: "HW for T/Normal Distribution"
+author: "Ruixuan Ma"
+date: "4/9/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Part 1: Plot a N(0,1) density/histogram with 10000 samples.
+
+```{r}
+StandNorm <- rnorm(10000, mean = 0, sd = 1)
+hist(StandNorm, xlim=c(-10, 10))
+plot(density(StandNorm), xlim=c(-10, 10))
+```
+
+# Part 2: plot density/histogram for 10000 samples of t-distribution with 
+# degree of freedom 3, 8, 15, 30, 100
+
+```{r}
+Tdf3 <- rt(10000, 3)
+hist(Tdf3, xlim=c(-10, 10))
+plot(density(Tdf3), xlim=c(-10, 10))
+
+Tdf8 <- rt(10000, 8)
+hist(Tdf8, xlim=c(-10, 10))
+plot(density(Tdf8), xlim=c(-10, 10))
+
+Tdf15 <- rt(10000, 15)
+hist(Tdf15, xlim=c(-10, 10))
+plot(density(Tdf15), xlim=c(-10, 10))
+
+Tdf30 <- rt(10000, 30)
+hist(Tdf30, xlim=c(-10, 10))
+plot(density(Tdf30), xlim=c(-10, 10))
+
+
+Tdf100 <- rt(10000, 100)
+hist(Tdf100, xlim=c(-10, 10))
+plot(density(Tdf100), xlim=c(-10, 10))
+
+# According to the histogram and density plot shown above, we can see that the 
+# t-distribution getting closer to normal distribution with the degree of
+#freedom increase.
+```
+
